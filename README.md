@@ -8,6 +8,8 @@ This project is a live trading automation script built around an event-driven de
 
 The strategy logic uses SPY as the primary signal driver and confirms direction with ES and NQ futures behavior before entering a trade. It also includes rule-based exit handling, end-of-day flattening, logging, and optional Telegram notifications.
 
+The broker integration is implemented with `ib_insync`, a higher-level Python wrapper around the Interactive Brokers API. This makes the event-driven market data and order workflow easier to structure than working directly with the lower-level native IB API callbacks.
+
 ## Strategy Idea
 
 The core idea is based on daily gaps in SPY. When SPY opens above or below the previous regular-session close, the script treats the previous close as the "full gap fill" reference level.
@@ -45,6 +47,7 @@ The exit management has two phases:
 ## Tech Stack
 
 - Python
+- ib_insync
 - Real-Time Data Processing
 - Event-Driven Architecture
 - API Integration

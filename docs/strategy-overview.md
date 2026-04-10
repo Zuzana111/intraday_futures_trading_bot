@@ -4,6 +4,8 @@ This project is based on a daily gap-fill concept in SPY. A daily gap occurs whe
 
 The system does not trade SPY directly. It uses SPY to define the gap and direction, then executes the trade in MES futures.
 
+The Interactive Brokers connection is handled with `ib_insync` rather than the lower-level native IB API. This keeps the market data subscriptions, event callbacks, and order-management flow easier to organize in a Python script.
+
 ## High-Level Workflow
 
 1. Pull live SPY, ES, and NQ data through the Interactive Brokers API.
